@@ -1,3 +1,10 @@
+import { FilterOptions } from "components/FilterOptions";
+
 export const Product = () => {
-  return <main>product list</main>;
+  return (
+    <main>
+      <FilterOptions />
+      product list
+    </main>
+  );
 };
