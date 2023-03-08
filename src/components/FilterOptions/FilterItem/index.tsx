@@ -15,12 +15,10 @@ interface FilterPropsType {
 
 export const FilterItem = ({ value, text }: FilterPropsType) => {
   const [filter, setFilter] = useRecoilState(filterState);
-
   const isActiveFilter = filter.includes(value);
+
   const toggleFilter = () => {
-    console.log(value);
     if (value === "reset") {
-      console.log("리셋");
       setFilter([]);
       return;
     }

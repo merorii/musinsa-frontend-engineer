@@ -1,17 +1,28 @@
-//recoil
-import { useRecoilValue } from "recoil";
-import { filterState } from "store/filterState";
-
 //components
 import { FilterOptions } from "components/FilterOptions";
 
+//hook
+import { useFilterData, useFetchData } from "hooks";
+
+//types
+import { FilteredData } from "hooks";
+
 export const Product = () => {
-  const filter = useRecoilValue(filterState);
-  console.log(filter);
+  const { data } = useFetchData();
+  const filtered = useFilterData(data);
   return (
     <main>
       <FilterOptions />
-      product list
+      <section>
+        {filtered &&
+          filtered.map(({ url, gender, name, tvSeries }: FilteredData) => {
+            return (
+              <div key={url}>
+                {gender} / {name} / {tvSeries}
+              </div>
+            );
+          })}
+      </section>
     </main>
   );
 };
