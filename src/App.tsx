@@ -4,11 +4,14 @@ import React from "react";
 //components
 import { Header } from "components";
 
+//pages
+import { Product } from "pages/Product";
+
 const App = () => {
   return (
     <div className="App">
       <Header />
-      {/* 상품리스트 */}
+      <Product />
     </div>
   );
 };
