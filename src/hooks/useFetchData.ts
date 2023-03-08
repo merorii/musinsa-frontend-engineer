@@ -1,15 +1,10 @@
 import axios from "axios";
 import { useInfiniteQuery } from "react-query";
 
-export interface FetchReturnType {
-  data: FilteredData[];
-}
+import { Character } from "store/types/character";
 
-export interface FilteredData {
-  url: string;
-  gender: "Female" | "Male";
-  name: string;
-  tvSeries: Array<string>;
+export interface FetchReturnType {
+  data: Character[];
 }
 
 export const fetchData = async (pageParam: number): Promise<FetchReturnType> => {
@@ -28,7 +23,6 @@ export const useFetchData = () => {
     },
     {
       getNextPageParam: (lastPage: any, allPage: any) => {
-        console.log(allPage);
         if (lastPage.total_pages > lastPage.page) {
           return lastPage.page + 1;
         }
@@ -39,5 +33,6 @@ export const useFetchData = () => {
       refetchOnReconnect: false,
     }
   );
+  console.log(data?.pages[0]);
   return { data: data?.pages[0], hasNextPage, fetchNextPage };
 };

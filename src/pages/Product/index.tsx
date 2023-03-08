@@ -1,11 +1,9 @@
 //components
 import { FilterOptions } from "components/FilterOptions";
+import { CharacterList } from "components/List/CharacterList";
 
 //hook
 import { useFilterData, useFetchData } from "hooks";
-
-//types
-import { FilteredData } from "hooks";
 
 export const Product = () => {
   const { data } = useFetchData();
@@ -13,16 +11,7 @@ export const Product = () => {
   return (
     <main>
       <FilterOptions />
-      <section>
-        {filtered &&
-          filtered.map(({ url, gender, name, tvSeries }: FilteredData) => {
-            return (
-              <div key={url}>
-                {gender} / {name} / {tvSeries}
-              </div>
-            );
-          })}
-      </section>
+      {filtered ? <CharacterList data={filtered} /> : <div>없음</div>}
     </main>
   );
 };
