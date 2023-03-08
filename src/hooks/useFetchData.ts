@@ -2,6 +2,7 @@ import axios from "axios";
 import { useInfiniteQuery } from "react-query";
 
 import { Character } from "store/types/character";
+import qs from "qs";
 
 export interface FetchReturnType {
   data: Character[];
@@ -15,10 +16,10 @@ export const fetchData = async (pageParam: number): Promise<FetchReturnType> => 
   return await axios.get(process.env.REACT_APP_BASE_URL as string, { params }).then((res) => res.data);
 };
 
-export const useFetchData = () => {
+export const useFetchData = (page: string) => {
   const { data, status, hasNextPage, fetchNextPage, isFetchingNextPage, isFetching } = useInfiniteQuery(
     ["fetchData"],
-    async ({ pageParam = 1 }) => {
+    async ({ pageParam = page }) => {
       return await fetchData(pageParam);
     },
     {
@@ -33,6 +34,6 @@ export const useFetchData = () => {
       refetchOnReconnect: false,
     }
   );
-  console.log(data?.pages[0]);
-  return { data: data?.pages[0], hasNextPage, fetchNextPage };
+  console.log(status);
+  return { data: data?.pages[0], hasNextPage, fetchNextPage, status, isFetching };
 };

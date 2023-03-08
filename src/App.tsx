@@ -5,13 +5,13 @@ import React from "react";
 import { Header } from "components";
 
 //pages
-import { Product } from "pages/Product";
+import { Home } from "pages/Home";
 
 const App = () => {
   return (
     <div className="App">
       <Header />
-      <Product />
+      <Home />
     </div>
   );
 };
