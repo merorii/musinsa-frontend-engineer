@@ -35,7 +35,7 @@ export const CharacterItem = ({ data }: CharacterPropsType) => {
   };
 
   return (
-    <S.Character>
+    <S.CharacterLi>
       <S.Content>
         <S.Top>
           <span className="name">{name || "Anonymous"}</span>
@@ -62,6 +62,6 @@ export const CharacterItem = ({ data }: CharacterPropsType) => {
       <S.RemoveBtn onClick={removeItem}>
         <img src={remove} alt="항목 삭제" />
       </S.RemoveBtn>
-    </S.Character>
+    </S.CharacterLi>
   );
 };

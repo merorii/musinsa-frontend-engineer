@@ -12,10 +12,10 @@ interface CharacterListPropsType {
 
 export const CharacterList = ({ data }: CharacterListPropsType) => {
   return (
-    <S.Section>
+    <S.CharacterUl>
       {data.map((item: Character) => {
         return <CharacterItem key={item.url} data={item} />;
       })}
-    </S.Section>
+    </S.CharacterUl>
   );
 };

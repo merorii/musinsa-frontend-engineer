@@ -31,6 +31,7 @@ export const FilterOption = styled.div<FilterOptionType>`
             background: ${({ theme }) => theme.colors.gray};
           }
         `}
+
   & + & {
     margin-left: 0.5rem;
   }

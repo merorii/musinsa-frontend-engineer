@@ -1,4 +1,4 @@
-//recoil
+//store
 import { useRecoilState } from "recoil";
 import { filterState } from "store/filterState";
 

@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const Section = styled.ul`
+export const CharacterUl = styled.ul`
   padding: 0 5vw;
 `;
 
-export const Character = styled.li`
+export const CharacterLi = styled.li`
   position: relative;
   display: flex;
   padding: 3rem;

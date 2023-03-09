@@ -1,5 +1,9 @@
 import { useRecoilValue } from "recoil";
+
+//store
 import { filterState } from "store/filterState";
+
+//type
 import { Character } from "store/types/character";
 
 export const useFilterData = (result: any) => {

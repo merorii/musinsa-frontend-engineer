@@ -15,9 +15,3 @@ export const filterState = atom({
   key: "filterState",
   default: defaultFilterState,
 });
-// const defaultRemoveFilterState: Array<string> = [];
-//
-// export const removeFilterState = atom({
-//   key: "removeFilterState",
-//   default: defaultRemoveFilterState,
-// });
