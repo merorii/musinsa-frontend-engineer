@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-export const CharacterUl = styled.ul`
-  padding: 0 5vw;
-`;
-
 export const CharacterLi = styled.li`
   position: relative;
   display: flex;
@@ -13,6 +9,9 @@ export const CharacterLi = styled.li`
   border-radius: 10px;
   & + & {
     margin-top: 1rem;
+  }
+  &:last-child {
+    margin-bottom: 50px;
   }
 `;
 

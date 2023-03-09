@@ -19,7 +19,7 @@ export const fetchData = async (pageParam: number): Promise<FetchReturnType> => 
   return { data: response, nextPage: pageParam * 1 + 1 };
 };
 
-export const useFetchData = (page: string = "1") => {
+export const useFetchData = (page: string) => {
   const { data, status, hasNextPage, fetchNextPage, isFetching } = useInfiniteQuery(
     ["fetchData"],
     async ({ pageParam = page || 1 }) => {
