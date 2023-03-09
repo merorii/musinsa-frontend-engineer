@@ -23,7 +23,8 @@ export const FilterOption = styled.div<FilterOptionType>`
   ${({ isActiveFilter }) =>
     isActiveFilter &&
     css`
-      color: ${({ theme }) => theme.colors.blue};
+      color: ${({ theme }) => theme.colors.white};
+      background: ${({ theme }) => theme.colors.black};
     `};
   & + & {
     margin-left: 0.5rem;

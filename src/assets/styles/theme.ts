@@ -5,6 +5,7 @@ export const colors = {
   gray: "rgb(238, 238, 238)",
   gray2: "rgb(170, 170, 170)",
   blue: "rgb(0, 120, 255)",
+  white: "rgb(255, 255, 255)",
 };
 
 export const theme: DefaultTheme = {
