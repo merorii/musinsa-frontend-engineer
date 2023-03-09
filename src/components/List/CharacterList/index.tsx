@@ -4,8 +4,6 @@ import { CharacterItem } from "./CharacterItem";
 //types
 import { Character } from "store/types/character";
 
-import * as S from "./style";
-
 interface CharacterListPropsType {
   data: Character[];
 }

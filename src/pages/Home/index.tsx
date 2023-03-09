@@ -22,7 +22,6 @@ export const Home = () => {
   const filtered = useFilterData(charactersData);
 
   const bottom = useRef(null);
-
   const onIntersect: IntersectionObserverCallback = ([{ isIntersecting }]) => {
     if (isIntersecting) {
       hasNextPage && fetchNextPage();
@@ -32,6 +31,7 @@ export const Home = () => {
   useObserver({
     target: bottom.current,
     onIntersect,
+    threshold: 0.7,
   });
 
   return (
