@@ -27,7 +27,7 @@ export const useFetchData = (page: string) => {
     },
     {
       getNextPageParam: (lastPage: FetchReturnType) => {
-        if (lastPage.data.length < 10) {
+        if (lastPage.data.length < 10 || lastPage.nextPage > 10) {
           return undefined;
         }
         return lastPage.nextPage;
