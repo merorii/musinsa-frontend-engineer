@@ -32,23 +32,14 @@ export const Content = styled.div`
   }
 `;
 
-export const RemoveBtn = styled.div`
-  cursor: pointer;
-`;
-
 export const Top = styled.div`
   margin-bottom: 1rem;
 `;
 
 export const List = styled.div`
   margin-bottom: 1rem;
-  div {
+  & > div {
     display: flex;
-  }
-  p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
 `;
 
@@ -57,4 +48,16 @@ export const Bottom = styled.div`
   div + div {
     margin-left: 1rem;
   }
+`;
+
+export const ListItem = styled.div`
+  p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+`;
+
+export const RemoveBtn = styled.div`
+  cursor: pointer;
 `;

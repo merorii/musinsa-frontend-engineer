@@ -10,7 +10,7 @@ interface CharacterPropsType {
 }
 
 export const CharacterItem = ({ data }: CharacterPropsType) => {
-  const { name, aliases, titles, books, tvSeries, died, gender } = data;
+  const { name, aliases, titles, books, tvSeries } = data;
 
   const removeBlankData = (array: string[]) => {
     return array.filter((item: string) => item !== "");
@@ -28,18 +28,16 @@ export const CharacterItem = ({ data }: CharacterPropsType) => {
       <S.Content>
         <S.Top>
           <span className="name">{name || "Anonymous"}</span>
-          <span className="small">{died !== "" && " (Dead)"}</span>
-          <span className="small gray"> / {gender}</span>
         </S.Top>
         <S.List>
-          <div>
+          <S.ListItem>
             <span className="gray">Aliase</span>
             <p>{arrayToTxt(aliases)}</p>
-          </div>
-          <div>
+          </S.ListItem>
+          <S.ListItem>
             <span className="gray">Titles</span>
             <p>{arrayToTxt(titles)}</p>
-          </div>
+          </S.ListItem>
         </S.List>
         <S.Bottom>
           <div>
