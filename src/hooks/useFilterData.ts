@@ -16,7 +16,10 @@ export const useFilterData = (result: any) => {
         updated = updated.filter((item: any) => item.died === "");
       }
       if (activeFilter === "noTvSeries") {
-        updated = updated.filter((item: any) => item.tvSeries.length <= 1);
+        updated = updated.filter(
+          (item: any) =>
+            item.tvSeries.length <= 0 || (item.tvSeries.length === 1 && item.tvSeries[0] === "")
+        );
       }
     });
 
