@@ -10,9 +10,11 @@ import * as S from "./style";
 export const FilterOptions = () => {
   return (
     <S.Section>
-      {(Object.entries(filterOptions) as Array<[FilterValueType, FilterTextType]>).map(([value, text]) => (
-        <FilterItem key={value} value={value} text={text} />
-      ))}
+      {(Object.entries(filterOptions) as Array<[FilterValueType, FilterTextType]>).map(
+        ([value, text]) => (
+          <FilterItem key={value} value={value} text={text} />
+        )
+      )}
     </S.Section>
   );
 };
