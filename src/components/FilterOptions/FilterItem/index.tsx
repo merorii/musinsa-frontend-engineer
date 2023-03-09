@@ -15,18 +15,18 @@ interface FilterPropsType {
 }
 
 export const FilterItem = ({ value, text }: FilterPropsType) => {
-  const [filter, setFilter] = useRecoilState(filterState);
+  const [{ filter }, setFilter] = useRecoilState(filterState);
   const isActiveFilter = filter.includes(value);
 
   const toggleFilter = () => {
     if (value === "reset") {
-      setFilter([]);
+      setFilter({ filter: [], remove: [] });
       return;
     }
     const updated = filter.includes(value)
       ? filter.filter((active) => active !== value)
       : filter.concat(value);
-    setFilter(updated);
+    setFilter((prev) => ({ ...prev, filter: updated }));
   };
 
   return (

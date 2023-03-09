@@ -1,3 +1,6 @@
+import { useSetRecoilState } from "recoil";
+import { filterState } from "store/filterState";
+
 //types
 import { Character } from "store/types/character";
 
@@ -10,7 +13,8 @@ interface CharacterPropsType {
 }
 
 export const CharacterItem = ({ data }: CharacterPropsType) => {
-  const { name, aliases, titles, books, tvSeries } = data;
+  const { name, aliases, titles, books, tvSeries, url } = data;
+  const setRemoveFilter = useSetRecoilState(filterState);
 
   const removeBlankData = (array: string[]) => {
     return array.filter((item: string) => item !== "");
@@ -21,6 +25,13 @@ export const CharacterItem = ({ data }: CharacterPropsType) => {
       return "-";
     }
     return removeBlankData(array).join(", ");
+  };
+
+  const removeItem = () => {
+    setRemoveFilter((prev) => ({
+      ...prev,
+      remove: [...prev.remove, url],
+    }));
   };
 
   return (
@@ -48,7 +59,7 @@ export const CharacterItem = ({ data }: CharacterPropsType) => {
           </div>
         </S.Bottom>
       </S.Content>
-      <S.RemoveBtn>
+      <S.RemoveBtn onClick={removeItem}>
         <img src={remove} alt="항목 삭제" />
       </S.RemoveBtn>
     </S.Character>

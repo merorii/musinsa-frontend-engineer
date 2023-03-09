@@ -1,8 +1,9 @@
 import { useRecoilValue } from "recoil";
 import { filterState } from "store/filterState";
+import { Character } from "store/types/character";
 
 export const useFilterData = (result: any) => {
-  const filter = useRecoilValue(filterState);
+  const { filter, remove } = useRecoilValue(filterState);
 
   const data = () => {
     if (!result) return;
@@ -23,7 +24,7 @@ export const useFilterData = (result: any) => {
       }
     });
 
-    return updated;
+    return updated.filter((item: Character) => !remove.includes(item.url));
   };
 
   return data();

@@ -21,11 +21,16 @@ export const FilterOption = styled.div<FilterOptionType>`
   cursor: pointer;
 
   ${({ isActiveFilter }) =>
-    isActiveFilter &&
-    css`
-      color: ${({ theme }) => theme.colors.white};
-      background: ${({ theme }) => theme.colors.black};
-    `};
+    isActiveFilter
+      ? css`
+          color: ${({ theme }) => theme.colors.white};
+          background: ${({ theme }) => theme.colors.black};
+        `
+      : css`
+          &:hover {
+            background: ${({ theme }) => theme.colors.gray};
+          }
+        `}
   & + & {
     margin-left: 0.5rem;
   }
