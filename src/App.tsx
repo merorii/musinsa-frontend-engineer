@@ -1,4 +1,3 @@
-//pages
 import { Characters } from "pages/Characters";
 
 const App = () => {

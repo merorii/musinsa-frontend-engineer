@@ -31,7 +31,7 @@ export const Filter = ({
       ))}
       {resetBtn && (
         <S.ResetBtn onClick={onClickResetBtn}>
-          <img src={reset} alt="필터 초기화" />{" "}
+          <img src={reset} alt="필터 초기화" />
         </S.ResetBtn>
       )}
     </S.Section>
