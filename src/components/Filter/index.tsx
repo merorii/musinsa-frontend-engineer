@@ -1,7 +1,7 @@
 import { filterOptions, FilterValueType } from "store/types/filter";
 
 import * as S from "./style";
-import reset from "assets/icons/reset.svg";
+import { ReactComponent as SvgReset } from "assets/icons/reset.svg";
 
 interface FilterPropsType {
   filter: Array<FilterValueType>;
@@ -31,7 +31,7 @@ export const Filter = ({
       ))}
       {resetBtn && (
         <S.ResetBtn onClick={onClickResetBtn}>
-          <img src={reset} alt="필터 초기화" />
+          <SvgReset />
         </S.ResetBtn>
       )}
     </S.Section>

@@ -1,7 +1,7 @@
 import { Character } from "store/types/character";
 
 import * as S from "./style";
-import remove from "assets/icons/remove.svg";
+import { ReactComponent as SvgRemove } from "assets/icons/remove.svg";
 
 interface CharacterPropsType {
   data: Character;
@@ -52,7 +52,7 @@ export const CharacterItem = ({ data, onClickRemove }: CharacterPropsType) => {
           onClickRemove(url);
         }}
       >
-        <img src={remove} alt="항목 삭제" />
+        <SvgRemove />
       </S.RemoveBtn>
     </S.CharacterLi>
   );
