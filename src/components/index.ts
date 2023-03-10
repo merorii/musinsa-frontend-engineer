@@ -1,4 +1,4 @@
 export * from "./Header";
 export * from "./CharacterList";
-export * from "./FilterOptions";
+export * from "./Filter";
 export * from "./Loader";

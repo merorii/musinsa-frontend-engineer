@@ -1,15 +1,15 @@
 import styled, { css } from "styled-components";
 
+interface FilterOptionType {
+  isActive: boolean;
+}
+
 export const Section = styled.section`
   display: flex;
   margin: 2rem 0;
 `;
 
-interface FilterOptionType {
-  isActiveFilter: boolean;
-}
-
-export const FilterOption = styled.div<FilterOptionType>`
+export const BtnCommonStyle = css`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,9 +18,13 @@ export const FilterOption = styled.div<FilterOptionType>`
   color: ${({ theme }) => theme.colors.black};
   border-radius: 50px;
   cursor: pointer;
+`;
 
-  ${({ isActiveFilter }) =>
-    isActiveFilter
+export const FilterItem = styled.div<FilterOptionType>`
+  ${BtnCommonStyle}
+
+  ${({ isActive }) =>
+    isActive
       ? css`
           color: ${({ theme }) => theme.colors.white};
           background: ${({ theme }) => theme.colors.black};
@@ -34,4 +38,9 @@ export const FilterOption = styled.div<FilterOptionType>`
   & + & {
     margin-left: 0.5rem;
   }
+`;
+
+export const ResetBtn = styled.button`
+  ${BtnCommonStyle}
+  margin-left: 0.5rem;
 `;

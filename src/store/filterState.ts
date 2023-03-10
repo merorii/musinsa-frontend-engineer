@@ -1,4 +1,5 @@
 import { atom } from "recoil";
+
 import { FilterValueType } from "data/filterOptions";
 
 interface FilterType {

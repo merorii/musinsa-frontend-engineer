@@ -1,8 +1,7 @@
-export const filterOptions = {
+export const filterOptions: Record<string, string> = {
   isLive: "생존인물만",
   isFemale: "여자",
   noTvSeries: "tvSeries 없음",
-  reset: "초기화",
 };
 
 export type FilterValueType = keyof typeof filterOptions;
