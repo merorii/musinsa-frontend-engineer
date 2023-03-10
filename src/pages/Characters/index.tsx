@@ -56,12 +56,13 @@ export const Characters = () => {
         resetBtn={true}
         onClickResetBtn={onClickResetBtn}
       />
-
-      {status === "error" && <div>문제가 발생했습니다. 다시 시도해주세요.</div>}
-      {status === "success" &&
-        (filtered ? <CharacterList data={filtered} /> : <div>일치하는 데이터가 없습니다.</div>)}
+      <section>
+        {status === "error" && <div>문제가 발생했습니다. 다시 시도해주세요.</div>}
+        {status === "success" &&
+          (filtered ? <CharacterList data={filtered} /> : <div>일치하는 데이터가 없습니다.</div>)}
+      </section>
       <div ref={bottom} />
-      {isFetching && <Loader />}
+      {isFetching && <Loader width={30} height={30} />}
     </CommonLayout>
   );
 };

@@ -1,14 +1,19 @@
 import styled from "styled-components";
 
-export const Spinner = styled.div`
+interface LoaderPropsType {
+  width?: number;
+  height?: number;
+}
+
+export const Spinner = styled.div<LoaderPropsType>`
   display: flex;
   justify-content: center;
   margin: 10px 0 20px;
 
   .sk-chase {
     margin-top: -20px;
-    width: 30px;
-    height: 30px;
+    width: ${({ width }) => (width ? `${width}px` : "50px")};
+    height: ${({ height }) => (height ? `${height}px` : "50px")};
     position: relative;
     animation: sk-chase 2.5s infinite linear both;
   }
