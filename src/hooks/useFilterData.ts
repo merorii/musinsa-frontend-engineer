@@ -4,29 +4,29 @@ import { filterState } from "store/states/filterState";
 
 import { Character } from "store/types/character";
 
-export const useFilterData = (result: any) => {
+export const useFilterData = (result: Character[] | undefined) => {
   const { filter, remove } = useRecoilValue(filterState);
+  if (!result) return;
 
   const data = () => {
-    if (!result) return;
     let updated = result;
 
     filter.forEach((activeFilter) => {
       if (activeFilter === "isFemale") {
-        updated = updated.filter((item: any) => item.gender === "Female");
+        updated = updated.filter((item) => item.gender === "Female");
       }
       if (activeFilter === "isLive") {
-        updated = updated.filter((item: any) => item.died === "");
+        updated = updated.filter((item) => item.died === "");
       }
       if (activeFilter === "noTvSeries") {
         updated = updated.filter(
-          (item: any) =>
+          (item) =>
             item.tvSeries.length <= 0 || (item.tvSeries.length === 1 && item.tvSeries[0] === "")
         );
       }
     });
 
-    return updated.filter((item: Character) => !remove.includes(item.url));
+    return updated.filter((item) => !remove.includes(item.url));
   };
 
   return data();
