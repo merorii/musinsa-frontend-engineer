@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
-import { FilterValueType } from "data/filterOptions";
+import { FilterValueType } from "store/types/filter";
 
 interface FilterType {
   filter: Array<FilterValueType>;

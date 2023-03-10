@@ -1,4 +1,4 @@
-import { filterOptions, FilterValueType } from "data/filterOptions";
+import { filterOptions, FilterValueType } from "store/types/filter";
 
 import * as S from "./style";
 import reset from "assets/icons/reset.svg";

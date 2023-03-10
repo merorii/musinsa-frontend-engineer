@@ -8,9 +8,9 @@ import { Filter, CharacterItem, Loader } from "components";
 
 import { useFilterData, useFetchData, useObserver } from "hooks";
 
-import { filterState } from "store/filterState";
+import { filterState } from "store/states/filterState";
 
-import { FilterValueType } from "data/filterOptions";
+import { FilterValueType } from "store/types/filter";
 import { Character } from "store/types/character";
 
 export const Characters = () => {

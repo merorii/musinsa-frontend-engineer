@@ -1,6 +1,6 @@
 import { useRecoilValue } from "recoil";
 
-import { filterState } from "store/filterState";
+import { filterState } from "store/states/filterState";
 
 import { Character } from "store/types/character";
 
