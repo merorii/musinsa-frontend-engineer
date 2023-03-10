@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useRecoilState } from "recoil";
 import qs from "qs";
 
-import { CommonLayout } from "layout/CommonLayout";
+import { CommonLayout } from "layout";
 
 import { Filter, CharacterItem, Loader } from "components";
 
