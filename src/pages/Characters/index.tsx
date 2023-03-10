@@ -14,15 +14,13 @@ import { FilterValueType } from "store/types/filter";
 import { Character } from "store/types/character";
 
 export const Characters = () => {
+  const [{ filter }, setFilter] = useRecoilState(filterState);
   const page = qs.parse(window.location.search, {
     ignoreQueryPrefix: true,
   }).page;
 
   const { data, status, hasNextPage, fetchNextPage, isFetching } = useFetchData(page);
-  const [{ filter }, setFilter] = useRecoilState(filterState);
-
-  const charactersData = data?.map((a) => a.data).flat();
-  const filtered = useFilterData(charactersData);
+  const filtered = useFilterData(data);
 
   const bottom = useRef(null);
   useObserver({

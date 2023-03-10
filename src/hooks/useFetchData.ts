@@ -37,5 +37,6 @@ export const useFetchData = (page: string | string[] | qs.ParsedQs | qs.ParsedQs
       refetchOnReconnect: false,
     }
   );
-  return { data: data?.pages, hasNextPage, fetchNextPage, status, isFetching };
+  const flatData = data?.pages.map((a) => a.data).flat();
+  return { data: flatData, hasNextPage, fetchNextPage, status, isFetching };
 };
