@@ -14,14 +14,14 @@ export const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
-  // <React.StrictMode>
-  <QueryClientProvider client={queryClient}>
-    <RecoilRoot>
-      <ThemeProvider theme={theme}>
-        <GlobalStyles />
-        <App />
-      </ThemeProvider>
-    </RecoilRoot>
-  </QueryClientProvider>
-  // </React.StrictMode>
+  <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <RecoilRoot>
+        <ThemeProvider theme={theme}>
+          <GlobalStyles />
+          <App />
+        </ThemeProvider>
+      </RecoilRoot>
+    </QueryClientProvider>
+  </React.StrictMode>
 );
