@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const CharacterLi = styled.li`
   position: relative;
-  display: flex;
   padding: 3rem;
   border: 1px solid ${({ theme }) => theme.colors.gray};
   color: ${({ theme }) => theme.colors.black};
@@ -58,5 +57,8 @@ export const ListItem = styled.div`
 `;
 
 export const RemoveBtn = styled.div`
+  position: absolute;
+  right: 3rem;
+  top: 3rem;
   cursor: pointer;
 `;
