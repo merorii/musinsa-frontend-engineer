@@ -3,12 +3,12 @@ import { useInfiniteQuery } from "react-query";
 
 import { Character } from "store/types/character";
 
-export interface FetchReturnType {
+export interface FetchDataReturnType {
   data: Character[];
   nextPage: number;
 }
 
-export const fetchData = async (pageParam: number): Promise<FetchReturnType> => {
+export const fetchData = async (pageParam: number): Promise<FetchDataReturnType> => {
   const params = {
     page: pageParam,
     pageSize: 10,
@@ -19,14 +19,14 @@ export const fetchData = async (pageParam: number): Promise<FetchReturnType> => 
   return { data: response, nextPage: pageParam * 1 + 1 };
 };
 
-export const useFetchData = (page: string) => {
+export const useFetchData = (page: string | string[] | qs.ParsedQs | qs.ParsedQs[] | undefined) => {
   const { data, status, hasNextPage, fetchNextPage, isFetching } = useInfiniteQuery(
     ["fetchData"],
     async ({ pageParam = page || 1 }) => {
       return await fetchData(pageParam);
     },
     {
-      getNextPageParam: (lastPage: FetchReturnType) => {
+      getNextPageParam: (lastPage: FetchDataReturnType) => {
         if (lastPage.data.length < 10 || lastPage.nextPage > 10) {
           return undefined;
         }

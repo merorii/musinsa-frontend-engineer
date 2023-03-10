@@ -1,20 +1,15 @@
-import { useSetRecoilState } from "recoil";
-import { filterState } from "store/filterState";
-
-//types
 import { Character } from "store/types/character";
 
-//styles
-import * as S from "../style";
+import * as S from "./style";
 import remove from "assets/icons/remove.svg";
 
 interface CharacterPropsType {
   data: Character;
+  onClickRemove: (removeUrl: string) => void;
 }
 
-export const CharacterItem = ({ data }: CharacterPropsType) => {
+export const CharacterItem = ({ data, onClickRemove }: CharacterPropsType) => {
   const { name, aliases, titles, books, tvSeries, url } = data;
-  const setRemoveFilter = useSetRecoilState(filterState);
 
   const removeBlankData = (array: string[]) => {
     return array.filter((item: string) => item !== "");
@@ -25,13 +20,6 @@ export const CharacterItem = ({ data }: CharacterPropsType) => {
       return "-";
     }
     return removeBlankData(array).join(", ");
-  };
-
-  const removeItem = () => {
-    setRemoveFilter((prev) => ({
-      ...prev,
-      remove: [...prev.remove, url],
-    }));
   };
 
   return (
@@ -59,7 +47,11 @@ export const CharacterItem = ({ data }: CharacterPropsType) => {
           </div>
         </S.Bottom>
       </S.Content>
-      <S.RemoveBtn onClick={removeItem}>
+      <S.RemoveBtn
+        onClick={() => {
+          onClickRemove(url);
+        }}
+      >
         <img src={remove} alt="항목 삭제" />
       </S.RemoveBtn>
     </S.CharacterLi>

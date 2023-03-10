@@ -4,20 +4,19 @@ import qs from "qs";
 
 import { CommonLayout } from "layout/CommonLayout";
 
-import { Filter, CharacterList, Loader } from "components";
+import { Filter, CharacterItem, Loader } from "components";
 
 import { useFilterData, useFetchData, useObserver } from "hooks";
 
 import { filterState } from "store/filterState";
 
 import { FilterValueType } from "data/filterOptions";
+import { Character } from "store/types/character";
 
 export const Characters = () => {
-  const page = JSON.stringify(
-    qs.parse(window.location.search, {
-      ignoreQueryPrefix: true,
-    }).page || 1
-  ).replace(/\"/g, "");
+  const page = qs.parse(window.location.search, {
+    ignoreQueryPrefix: true,
+  }).page;
 
   const { data, status, hasNextPage, fetchNextPage, isFetching } = useFetchData(page);
   const [{ filter }, setFilter] = useRecoilState(filterState);
@@ -48,6 +47,13 @@ export const Characters = () => {
     setFilter({ filter: [], remove: [] });
   };
 
+  const onClickRemoveBtn = (removeUrl: Character["url"]) => {
+    setFilter((prev) => ({
+      ...prev,
+      remove: [...prev.remove, removeUrl],
+    }));
+  };
+
   return (
     <CommonLayout>
       <Filter
@@ -59,7 +65,17 @@ export const Characters = () => {
       <section>
         {status === "error" && <div>문제가 발생했습니다. 다시 시도해주세요.</div>}
         {status === "success" &&
-          (filtered ? <CharacterList data={filtered} /> : <div>일치하는 데이터가 없습니다.</div>)}
+          (filtered ? (
+            <ul>
+              {filtered.map((item: Character) => {
+                return (
+                  <CharacterItem key={item.url} data={item} onClickRemove={onClickRemoveBtn} />
+                );
+              })}
+            </ul>
+          ) : (
+            <div>일치하는 데이터가 없습니다.</div>
+          ))}
       </section>
       <div ref={bottom} />
       {isFetching && <Loader width={30} height={30} />}
