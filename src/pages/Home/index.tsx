@@ -22,15 +22,11 @@ export const Home = () => {
   const filtered = useFilterData(charactersData);
 
   const bottom = useRef(null);
-  const onIntersect: IntersectionObserverCallback = ([{ isIntersecting }]) => {
-    if (isIntersecting) {
-      hasNextPage && fetchNextPage();
-    }
-  };
 
   useObserver({
     target: bottom.current,
-    onIntersect,
+    hasNextPage,
+    fetchNextPage,
     threshold: 0.7,
   });
 
