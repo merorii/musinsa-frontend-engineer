@@ -25,7 +25,6 @@ export const Characters = () => {
   const filtered = useFilterData(charactersData);
 
   const bottom = useRef(null);
-
   useObserver({
     target: bottom.current,
     hasNextPage,
@@ -65,7 +64,7 @@ export const Characters = () => {
       <section>
         {status === "error" && <div>문제가 발생했습니다. 다시 시도해주세요.</div>}
         {status === "success" &&
-          (filtered ? (
+          (filtered && filtered.length > 0 ? (
             <ul>
               {filtered.map((item: Character) => {
                 return (
