@@ -6,10 +6,9 @@ import { FilterOptions, CharacterList, Loader } from "components";
 
 //hook
 import { useFilterData, useFetchData, useObserver } from "hooks";
+import { CommonLayout } from "layout/CommonLayout";
 
-import * as S from "./style";
-
-export const Home = () => {
+export const Characters = () => {
   const page = JSON.stringify(
     qs.parse(window.location.search, {
       ignoreQueryPrefix: true,
@@ -31,13 +30,13 @@ export const Home = () => {
   });
 
   return (
-    <S.Main>
+    <CommonLayout>
       <FilterOptions />
       {status === "error" && <div>문제가 발생했습니다. 다시 시도해주세요.</div>}
       {status === "success" &&
         (filtered ? <CharacterList data={filtered} /> : <div>일치하는 데이터가 없습니다.</div>)}
       <div ref={bottom} />
       {isFetching && <Loader />}
-    </S.Main>
+    </CommonLayout>
   );
 };

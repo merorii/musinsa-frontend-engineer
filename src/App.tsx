@@ -1,19 +1,8 @@
-//base
-import React from "react";
-
-//components
-import { Header } from "components";
-
 //pages
-import { Home } from "pages/Home";
+import { Characters } from "pages/Characters";
 
 const App = () => {
-  return (
-    <div className="App">
-      <Header />
-      <Home />
-    </div>
-  );
+  return <Characters />;
 };
 
 export default App;
