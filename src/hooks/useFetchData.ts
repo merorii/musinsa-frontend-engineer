@@ -5,7 +5,7 @@ import { Character } from "store/types/character";
 
 export interface FetchDataReturnType {
   data: Character[];
-  nextPage: number;
+  page: number;
 }
 
 export const fetchData = async (pageParam: number): Promise<FetchDataReturnType> => {
@@ -16,7 +16,7 @@ export const fetchData = async (pageParam: number): Promise<FetchDataReturnType>
   const response = await axios
     .get(process.env.REACT_APP_BASE_URL as string, { params })
     .then((res) => res.data);
-  return { data: response, nextPage: pageParam * 1 + 1 };
+  return { data: response, page: Number(pageParam) };
 };
 
 export const useFetchData = (page: string | string[] | qs.ParsedQs | qs.ParsedQs[] | undefined) => {
@@ -27,10 +27,11 @@ export const useFetchData = (page: string | string[] | qs.ParsedQs | qs.ParsedQs
     },
     {
       getNextPageParam: (lastPage: FetchDataReturnType) => {
-        if (lastPage.data.length < 10 || lastPage.nextPage > 10) {
+        const nextPage = lastPage.page + 1;
+        if (lastPage.data.length < 10 || nextPage > 10) {
           return undefined;
         }
-        return lastPage.nextPage;
+        return nextPage;
       },
       refetchOnMount: false,
       refetchOnWindowFocus: false,
