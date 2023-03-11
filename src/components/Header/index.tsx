@@ -1,3 +1,5 @@
+import React from "react";
+
 import * as S from "./style";
 import { ReactComponent as SvgLogo } from "assets/icons/logo.svg";
 

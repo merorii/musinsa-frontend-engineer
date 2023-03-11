@@ -1,3 +1,5 @@
+import React from "react";
+
 import { Character } from "store/types/character";
 
 import * as S from "./style";

@@ -1,3 +1,5 @@
+import React from "react";
+
 import { filterOptions, FilterValueType } from "store/types/filter";
 
 import * as S from "./style";

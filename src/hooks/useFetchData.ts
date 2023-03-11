@@ -14,7 +14,7 @@ export const fetchData = async (pageParam: number): Promise<FetchDataReturnType>
     pageSize: 10,
   };
   const response = await axios
-    .get(process.env.REACT_APP_BASE_URL as string, { params })
+    .get(import.meta.env.VITE_BASE_URL as string, { params })
     .then((res) => res.data);
   return { data: response, page: Number(pageParam) };
 };

@@ -8,7 +8,7 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyles from "assets/styles/GlobalStyles";
 import { theme } from "assets/styles/theme";
 
-import App from "./App";
+import App from "App";
 
 export const queryClient = new QueryClient();
 
