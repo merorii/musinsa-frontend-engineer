@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 
 interface Props {
   target: HTMLDivElement | null;
@@ -8,11 +8,14 @@ interface Props {
 }
 
 export const useObserver = ({ target, hasNextPage, fetchNextPage, threshold }: Props) => {
-  const onIntersect: IntersectionObserverCallback = ([{ isIntersecting }]) => {
-    if (isIntersecting) {
-      hasNextPage && fetchNextPage();
-    }
-  };
+  const onIntersect: IntersectionObserverCallback = useCallback(
+    ([{ isIntersecting }]) => {
+      if (isIntersecting) {
+        hasNextPage && fetchNextPage();
+      }
+    },
+    [target]
+  );
 
   useEffect(() => {
     const observer = new IntersectionObserver(onIntersect, {
@@ -22,5 +25,5 @@ export const useObserver = ({ target, hasNextPage, fetchNextPage, threshold }: P
     return () => {
       observer && observer.disconnect();
     };
-  }, [target]);
+  }, [target, onIntersect, threshold]);
 };
