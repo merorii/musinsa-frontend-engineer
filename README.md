@@ -1,46 +1,55 @@
-# Getting Started with Create React App
+# 무신사 사전과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br/>
 
-## Available Scripts
+사전과제전형 기회를 주셔서 감사합니다!  
+실행방법과 개발환경 및 선정이유에 대해서는 아래에 간단하게 작성하였으며,  
+자세한 프로젝트 설명과 문제해결과정등에 대한 기록은 [**📍 노션**](https://hsshim.notion.site/428ca139d1484eb38d2ffc5de81b5738)을 통해 작성하며 작업했습니다!  
+<br/>
+본 프로젝트는 아래 링크에 배포해두었습니다.  
+[🚀 [ vercel 페이지 배포 링크 ]](https://musinsa-hsshim.vercel.app/)
 
-In the project directory, you can run:
+<br/><hr/><br/>
 
-### `npm start`
+## 실행 방법
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+_로컬서버 구동 편의를 위해 .env파일은 함께 레포지토리에 업로드 하였습니다._
+<br/><br/>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. 패키지 설치
 
-### `npm test`
+```
+npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. 프로젝트 실행
 
-### `npm run build`
+```
+npm run start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. 브라우저를 열어 `localhost:3000` 주소로 실행
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br/><hr/><br/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 개발 환경 & 선정 이유
 
-### `npm run eject`
+- ### **react**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  실무에서 많이 쓰이는 react를 선택하여 실제로 작업하는 방식을 보여드리고자 했습니다.
+  Virtual DOM 이라는 개념을 사용하여 상태가 변함에 따라 선택적으로 인터페이스를 렌더링한다는 점과 컴포넌트 기반으로 재사용을 통해 유지보수가 용이하다는 장점때문에 react를 선택했습니다.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- ### **typescript**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+  정적타입의 컴파일 언어로 코드 작성 단계에서 타입을 체크해 오류를 확인할 수 있습니다. 미리 타입을 정하기 때문에 속도가 빠르고, 협업을 하는데에 있어 코드의 목적이 뚜렷하다는 장점때문에 typescript를 함께 사용했습니다.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- ### **react-query**
 
-## Learn More
+  서버사이드 상태관리를 위해 react-query를 사용했습니다. 클라이언트사이드 상태와 분리되어 따로 관리 함으로써 상태관리가 간편하다는 장점이 있고, 같은 데이터를 여러번 요청할 경우 중복을 제거한다는 장점이 있어 현재 프로젝트에서 데이터가 크게 바뀌지 않는 단순 출력의 페이지에서 활용도가 높을 것 같아 react-query를 선택했습니다.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- ### **recoil**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  클라이언트사이드 상태관리를 위해 recoil을 사용했습니다. redux보다 가볍고, react를 지원하는 전용 상태관리로 react hook과 사용법이 비슷하여 개발하기에 편리하다는 장점 때문에 recoil을 선택했습니다.
+
+- ### **styled-components**
+  스타일 도구로는 Css-in-JS 중 대표적인 styled-components를 사용했습니다. props를 적용하여 스타일을 변경할 수 있다는 장점과 공통 theme을 설정하여 통일성 있는 코드를 작성할 수 있다는 장점이 있습니다. 또한 컴포넌트 단위로 스타일을 작업하여 필요한 스타일만 로드한다는 장점들 때문에 styled-components를 선택했습니다.
